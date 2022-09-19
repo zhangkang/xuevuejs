@@ -28,7 +28,10 @@
             },
             watch:{
                 firstName(newValue){
-                    this.fullName=newValue+"-"+this.lastName
+                    setTimeout(() => {
+                        this.fullName=newValue+"-"+this.lastName
+                    }, 1000);
+                    
                 },
                 lastName(newValue){
                     this.fullName=this.firstName+"-"+newValue
