@@ -19,6 +19,13 @@
         <div v-else-if="n === 2">React</div>
         <div v-else-if="n === 3">Vue</div>
         <div v-else>Mvvma</div>
+
+        <!-- v-if使用时,元素可能无法获取到,而使用v-show时元素还是存在页面中 -->
+        <template v-if="n===1">
+            <h2>你好</h2>
+            <h2>我是</h2>
+            <h2>zhangkang</h2>
+        </template>
     </div>
     <script type="text/javascript">
         Vue.config.productionTip = false //阻止vue 在启动时生成生产提示

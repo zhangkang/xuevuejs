@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本列表</title>
+    <link rel="icon" href="/logo.svg">
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+
+    <div id="root">
+        <h2>遍历数组</h2>
+         <ul>
+            <li v-for="(p,index) in persons" :key="p.id">{{p.userName}}-{{p.age}}--{{p.id}}</li>
+         </ul>
+         <h2>遍历对象</h2>
+         <ul>
+            <li v-for="(value,k) of car" :key="k">
+                {{k}}-{{value}}
+            </li>
+         </ul>
+         <h2>遍历字符串</h2>
+         <ul>
+            <li v-for="(char,index) of str" :key="index">
+                {{index}}-{{char}}
+            </li>
+         </ul>
+         <h2>遍历指定次数</h2>
+         <ul>
+            <li v-for="(number,index) of 5" :key="index">
+                {{index}}-{{number}}
+            </li>
+         </ul>
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false //阻止vue 在启动时生成生产提示
+        const vm = new Vue({
+            el: "#root",
+            data: {
+               persons:[
+                {id:'001',userName:'张1',age:12},
+                {id:'002',userName:'张2',age:14},
+                {id:'003',userName:'张3',age:16},
+                {id:'004',userName:'张4',age:18},
+               ],
+               car:{
+                name:'volvo',
+                price:'70万',
+                color:'黑色'
+               },
+               str:'abcdef'
+            }
+        })
+    </script>
+
+</body>
+</html>
