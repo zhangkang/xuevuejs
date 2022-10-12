@@ -13,11 +13,7 @@
         <h2>今天天气很{{info}}</h2>
         <button @click="changeWeather">切换天气</button>
         <br>
-        <h3>a的值:{{numbers.a}}</h3>
-        <button @click="add">a+1</button> 
-        <br>
-        <h3>b的值:{{numbers.b}}</h3>
-        <button @click="numbers.b++">b+1</button> {{numbers.c.d.e}}
+   
 
     </div>
     <script type="text/javascript">
@@ -26,15 +22,7 @@
             el:'#root',
             data:{
                 isHot:true,
-                numbers:{
-                    a:1,
-                    b:1,
-                    c:{
-                        d:{
-                            e:100
-                        }
-                    }
-                }
+                
             },
             computed:{
                 info(){
@@ -46,38 +34,34 @@
                     this.isHot=!this.isHot
                     //this.x++
                 },
-                add(){
-                    this.numbers.a++
-                    //this.x++ 
-                }
+
             },
             watch: {
-                isHot:{
+                //正常写法
+                /*isHot:{
                     // immediate:true,//初始化时，handler 会调用一下
+                    //deep: true,//深度监视
                     handler(newValue,oldValue){
                         console.log('isHot 被修改了',newValue,oldValue)
                     }
-                },
-                numbers:{
-                    //deep:true,//监事多级结构中所有属性的变化
-                    handler(){
-                        console.log('numbers 被修改了')
-                    } 
-                }
-                // 'numbers.a':{
-                //     handler(newValue,oldValue){
-                //         console.log('a 被修改了',newValue,oldValue)
-                //     } 
-                // }
-                
+                }, */
+                //简写
+               /*  isHot(newValue,oldValue){
+                    console.log('isHot 被修改了',newValue,oldValue)
+                } */
             },
         })
-/*         vm.$watch('isHot',{
+   /*      vm.$watch('isHot',{
             immediate:true,//初始化时，handler 会调用一下
-                    handler(newValue,oldValue){
-                        console.log('isHot 被修改了',newValue,oldValue)
-                    }
-        }) */
+            deep: true,//深度监视
+            handler(newValue,oldValue){
+                console.log('isHot 被修改了',newValue,oldValue)
+            }
+        })  */ 
+        vm.$watch('isHot',function(newValue,oldValue){
+            console.log('isHot 被修改了',newValue,oldValue)
+        })
+    
     </script>
 </body>
 </html>
