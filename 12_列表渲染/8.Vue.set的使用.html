@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8.Vue.set的使用</title>
+    <link rel="icon" href="/logo.svg">
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h2>学校名称:{{sname}}</h2>
+        <h2>学校地址:{{address}}</h2>
+        <h2>学校姓名:{{student.name}}</h2>
+        <h2>学校性别:{{student.sex}}</h2>
+        <h2>学校年龄:真实{{student.age.rAge}} 对外{{student.age.sAge}}</h2>
+        <ul>
+            <li v-for="(f,index) in student.friends" :key="index">
+                {{f.name}}--{{f.age}}
+            </li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false //阻止vue 在启动时生成生产提示
+
+        new Vue({
+            el: "#root",
+            data: {
+               sname:"钢学院",
+               address:"马鞍山",
+               student:{
+                name:'tom',
+                age:{
+                    rAge:40,
+                    sAge:39,
+                },
+                friends:[
+                    {name:'jerry',age:35},
+                    {name:'tong',age:45}
+                ]
+
+               }
+            },
+            
+        })
+    </script>
+</body>
+
+</html>
